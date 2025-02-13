@@ -1,9 +1,11 @@
+package Stack;
+
 import java.util.Stack;
 
-public class Main {
+public class StackDS {
     public static void main(String[] args) {
 
-        Stack<String> stack = new Stack<String>();
+        Stack<String> stack = new Stack<>();
 
         //System.out.println(stack.empty());
 
@@ -17,5 +19,6 @@ public class Main {
         //System.out.println(stack.peek());
         //System.out.println(stack.search("Fallout76"));
         System.out.println(stack);
+
     }
 }

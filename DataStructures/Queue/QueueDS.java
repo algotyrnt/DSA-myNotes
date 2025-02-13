@@ -1,8 +1,9 @@
-import java.util.Queue;
+package Queue;
+
 import java.util.LinkedList;
+import java.util.Queue;
 
-public class Main{
-
+public class QueueDS {
     public static void main(String[] args) {
 
         Queue<String> queue = new LinkedList<String>();

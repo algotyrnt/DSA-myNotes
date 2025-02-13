@@ -2,7 +2,6 @@ Queue
     FIFO data structure. First-In First-Out
     A collection designed for holding elements prior to processing
     Linear data structure
-
         enqueue = offer()
         dequeue = poll()
 
