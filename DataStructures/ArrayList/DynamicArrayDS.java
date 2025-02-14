@@ -1,4 +1,4 @@
-package DynamicArray;
+package ArrayList;
 
 public class DynamicArrayDS {
     public static void main(String[] args) {
