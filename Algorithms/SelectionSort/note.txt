@@ -1,0 +1,8 @@
+selection sort
+    search through an array
+    keep track of the minimum value during each iteration
+    At the end of each iteration, we swap values.
+
+	time O(n^2)
+	mall data set = okay
+	large data set = BAD
