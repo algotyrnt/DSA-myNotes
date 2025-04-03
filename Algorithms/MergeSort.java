@@ -1,69 +1,75 @@
 public class MergeSort {
-    public static void main(String[] args)
-    {
-        int[] array = {8, 2, 5, 3, 4, 7, 6, 1};
 
-        mergeSort(array);
+    public static void main(String[] args) {
 
-        for (int j : array) {
-            System.out.print(j + " ");
+        int[] array = {8, 7, 9, 2, 3, 1, 5, 4, 6};
+
+        mergeSort(array, 0, array.length - 1);
+
+        for(int i : array) {
+            System.out.print(i + " ");
         }
     }
 
-    private static void mergeSort(int[] array) {
+    private static void mergeSort(int[] array, int left, int right) {
 
-        int length = array.length;
-        if (length <= 1) return; //base case
+        if(left<right)
+        {
+            int mid = (left+right)/2;
+            mergeSort(array, left, mid);
+            mergeSort(array, mid+1, right);
 
-        int middle = length / 2;
-        int[] leftArray = new int[middle];
-        int[] rightArray = new int[length - middle];
-
-        int i = 0; //left array
-        int j = 0; //right array
-
-        for(; i < length; i++) {
-            if(i < middle) {
-                leftArray[i] = array[i];
-            }
-            else {
-                rightArray[j] = array[i];
-                j++;
-            }
+            merge(array, left, mid, right);
         }
-        mergeSort(leftArray);
-        mergeSort(rightArray);
-        merge(leftArray, rightArray, array);
+
     }
 
-    private static void merge(int[] leftArray, int[] rightArray, int[] array) {
+    private static void merge(int[] array, int left, int mid, int right) {
 
-        int leftSize = array.length / 2;
-        int rightSize = array.length - leftSize;
-        int i = 0, l = 0, r = 0; //indices
+        int leftSize = mid- left + 1;  //size of left array
+        int rightSize = right - mid;    //size of right array
 
-        //check the conditions for merging
-        while(l < leftSize && r < rightSize) {
-            if(leftArray[l] < rightArray[r]) {
-                array[i] = leftArray[l];
-                i++;
-                l++;
+        int[] leftArr = new int[leftSize];
+        int[] rightArr = new int[rightSize];
+
+        for(int x = 0; x< leftSize; x++)
+        {
+            leftArr[x] = array[left +x];
+        }
+        for(int x = 0; x< rightSize; x++)
+        {
+            rightArr[x] = array[mid+1+x];
+        }
+
+        int leftInd =0;
+        int rightInd =0;
+        int arrayInd = left;
+
+        while(leftInd < leftSize && rightInd < rightSize)
+        {
+            if(leftArr[leftInd] <= rightArr[rightInd])
+            {
+                array[arrayInd] = leftArr[leftInd];
+                leftInd++;
             }
             else {
-                array[i] = rightArray[r];
-                i++;
-                r++;
+                array[arrayInd] = rightArr[rightInd];
+                rightInd++;
             }
+            arrayInd++;
         }
-        while(l < leftSize) {
-            array[i] = leftArray[l];
-            i++;
-            l++;
+
+        while(leftInd < leftSize)
+        {
+            array[arrayInd] = leftArr[leftInd];
+            leftInd++;
+            arrayInd++;
         }
-        while(r < rightSize) {
-            array[i] = rightArray[r];
-            i++;
-            r++;
+        while(rightInd < rightSize)
+        {
+            array[arrayInd] = rightArr[rightInd];
+            rightInd++;
+            arrayInd++;
         }
     }
 }
