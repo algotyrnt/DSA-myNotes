@@ -12,18 +12,17 @@ public class QuickSort {
 
     private static void quickSort(int[] array, int low, int high) {
 
-        if(low<high)
-        {
-            int pivot = partition(array, low, high);
+        if(high <= low) return; //base case
 
-            quickSort(array, low, pivot-1);
-            quickSort(array, pivot+1, high);
-        }
+        int pivot = partition(array, low, high);
+
+        quickSort(array, low, pivot-1); //right side array
+        quickSort(array, pivot+1, high); //left side array
     }
 
     private static int partition(int[] array, int low, int high) {
         int pivot = array[high];
-        int i = low-1;
+        int i = low - 1;
 
         for(int j = low; j < high; j++)
         {
@@ -35,6 +34,7 @@ public class QuickSort {
                 array[j] = temp;
             }
         }
+        // insert pivot to it's location
         i++;
         int temp = array[i];
         array[i] = array[high];
