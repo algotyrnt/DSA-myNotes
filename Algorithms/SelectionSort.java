@@ -7,23 +7,23 @@ public class SelectionSort {
         selectionSort(array);
 
         for(int i : array) {
-            System.out.print(i);
+            System.out.print(i + " ");
         }
     }
 
     private static void selectionSort(int[] array) {
 
-        for(int i = 0; i < array.length; i++) {
-            int min = i;
+        for(int i = 0; i < array.length - 1; i++) {
+            int minIndex = i;
             for(int j = i + 1; j < array.length; j++) {
-                if(array[min] > array[j]) {
-                    min = j;
+                if(array[minIndex] > array[j]) {
+                    minIndex = j;
                 }
             }
 
             int temp = array[i];
-            array[i] = array[min];
-            array[min] = temp;
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
         }
 
     }
