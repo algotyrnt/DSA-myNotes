@@ -1,6 +1,4 @@
-package MergeSort;
-
-public class MergeSortAlgo {
+public class MergeSort {
     public static void main(String[] args)
     {
         int[] array = {8, 2, 5, 3, 4, 7, 6, 1};
